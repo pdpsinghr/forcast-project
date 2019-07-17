@@ -34,23 +34,22 @@ class App extends Component {
   }
 
   onInputChange = (event) => {
-      this.setState({[event.target.name]: event.target.value })
-    }
+    this.setState({ [event.target.name]: event.target.value })
+  }
 
   render() {
-
     const { options } = this.state;
 
     return (
       <div className="App">
         <Form>
           <Form.Group widths='equal'>
-            <Form.Select label='Base Currency' name="baseCurrency" onChange={this.onInputChange}  options={options} placeholder='Base Currency' />
-            <Form.Select label='Target Currency' name="targetCurrency" onChange={this.onInputChange} options={options} placeholder='Target Currency' />
+            <Form.Select label='Base Currency' name="baseCurrency" onChange={(e, { value }) => this.setState({ baseCurrency: value })} options={options} placeholder='Base Currency' />
+            <Form.Select label='Target Currency' name="targetCurrency" onChange={(e, { value }) => this.setState({ targetCurrency: value })} options={options} placeholder='Target Currency' />
           </Form.Group>
           <Form.Group>
-            <Form.Input label='Amount' name="amount" onChange={this.onInputChange} control='input' type='number' max={5}  placeholder='Amount' />
-            <Form.Input label='Maximum Waiting Time' name="waitingTime" onChange={this.onInputChange} control='input' type='number' max={5}  placeholder='Maximum waiting time' />
+            <Form.Input label='Amount' name="amount" onChange={this.onInputChange} control='input' type='number' max={5} placeholder='Amount' />
+            <Form.Input label='Maximum Waiting Time' name="waitingTime" onChange={this.onInputChange} control='input' type='number' max={5} placeholder='Maximum waiting time' />
           </Form.Group>
           <Form.Button>Submit</Form.Button>
         </Form>

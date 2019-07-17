@@ -39,12 +39,12 @@ class App extends Component {
       <div className="App">
         <Form>
           <Form.Group widths='equal'>
-            <Form.Select label='Base Currency' value={baseCurrency} options={options} placeholder='Base Currency' />
-            <Form.Select label='Target Currency' value={targetCurrency} options={options} placeholder='Target Currency' />
+            <Form.Select label='Base Currency'  options={options} placeholder='Base Currency' />
+            <Form.Select label='Target Currency'  options={options} placeholder='Target Currency' />
           </Form.Group>
           <Form.Group>
-            <Form.Input label='Amount' value={amount} placeholder='Amount' />
-            <Form.Input label='Maximum Waiting Time' value={waitingTime} placeholder='Maximum waiting time' />
+            <Form.Input label='Amount' control='input' type='number' max={5} value={amount} placeholder='Amount' />
+            <Form.Input label='Maximum Waiting Time' control='input' type='number' max={5} value={waitingTime} placeholder='Maximum waiting time' />
           </Form.Group>
           <Form.Button>Submit</Form.Button>
         </Form>
